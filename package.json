@@ -1,19 +1,42 @@
 {
   "name": "prisma",
   "version": "1.0.0",
-  "description": "",
+  "description": "TypeScript + Prisma 7 (Rust-free client) with SQLite via the better-sqlite3 driver adapter",
+  "type": "module",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "tsx ./src/index.ts"
+    "dev": "tsx ./src/index.ts",
+    "start": "node dist/index.js",
+    "build": "npm run typecheck && esbuild src/index.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/index.js --packages=external",
+    "typecheck": "tsc -p tsconfig.json",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "studio": "prisma studio",
+    "seed": "prisma db seed"
   },
-  "keywords": [],
+  "keywords": [
+    "prisma",
+    "prisma7",
+    "sqlite",
+    "typescript"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
     "@types/node": "^26.6.4",
-    "prisma": "^6.19.3",
+    "dotenv": "^18.0.5",
+    "esbuild": "^0.28.2",
+    "prisma": "^7.10.0",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "better-sqlite3": "^12.11.1"
+  },
+  "engines": {
+    "node": ">=20.19.0"
   }
 }

@@ -1,4 +1,14 @@
 node_modules
+dist
+
+# generated Prisma client (rebuild with `npm run generate`)
 /src/generated/prisma
+
+# SQLite database files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# env
 .env
-/src/generated/prisma
