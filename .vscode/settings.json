@@ -28,5 +28,9 @@
     "titleBar.inactiveForeground": "#e7e7e799",
     "statusBar.inactiveBackground": "#0f2e44"
   },
-  "peacock.color": "#0F2E44"
+  "peacock.color": "#0F2E44",
+  "code-runner.executorMap": {
+    "typescript": "npx tsx"
+  },
+  "code-runner.clearPreviousOutput": true
 }
