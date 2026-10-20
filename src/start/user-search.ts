@@ -14,7 +14,7 @@ async function findActive(): Promise<any[]> {
 async function findByEmail(email: string): Promise<any> {
   return await prisma.user.findUnique({
     where: { email },
-    select: { name: true, email: true },
+    omit: { id: true, active: true },
   });
 }
 
