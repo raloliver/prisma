@@ -1,7 +1,7 @@
 import { prisma } from '../db.js';
 
 async function findMany(): Promise<any[]> {
-  return await prisma.user.findMany();
+  return await prisma.user.findMany({ select: { name: true, email: true } });
 }
 
 async function findActive(): Promise<any[]> {
@@ -11,6 +11,13 @@ async function findActive(): Promise<any[]> {
   });
 }
 
-findActive()
+async function findByEmail(email: string): Promise<any> {
+  return await prisma.user.findUnique({
+    where: { email },
+    select: { name: true, email: true },
+  });
+}
+
+findByEmail('email@domain.com')
   .then(console.log)
   .catch(({ message }) => console.log(message));
