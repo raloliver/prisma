@@ -4,8 +4,9 @@ async function userInsert(): Promise<void> {
   const user = await prisma.user.create({
     data: {
       id: crypto.randomUUID(),
-      name: 'Maria José',
-      email: 'email+1@domain.com',
+      name: 'Antonio dos Santos',
+      email: 'email+2@domain.com',
+      active: true
     },
   });
 
