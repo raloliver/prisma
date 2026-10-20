@@ -1,12 +1,14 @@
 import { prisma } from '../db.js';
 
+const email = Math.random().toString(16).slice(2);
+
 async function userInsert(): Promise<void> {
   const user = await prisma.user.create({
     data: {
       id: crypto.randomUUID(),
-      name: 'Antonio dos Santos',
-      email: 'email+2@domain.com',
-      active: true
+      name: 'Geraldo Bastos',
+      email: `${email}@domain.com`,
+      active: true,
     },
   });
 
